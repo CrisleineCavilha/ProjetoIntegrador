@@ -8,8 +8,6 @@ class servicoPanificadoras {
             throw new Error('Não foi enviado uma panificadora para cadastrar.');
         } else if(!panificadora.nome){
             throw new Error('Não foi enviado o nome da Panificadora');
-        } else if(!panificadora.telefone){
-            throw new Error('Não foi enviado o número de telefone da Panificadora');
         } else if(!panificadora.cnpj){
             throw new Error('Não foi enviado o CNPJ da Panificadora');
         } 
