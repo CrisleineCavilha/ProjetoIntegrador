@@ -12,11 +12,6 @@ const Panificadora = conexao.define('panificadoras', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    telefone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
     cnpj: {
         type: DataTypes.STRING,
         allowNull: false,             
@@ -40,5 +35,7 @@ Panificadora.belongsTo(Usuario, {
     constraint: true, 
     foreignKey: 'idUsuario' 
 });
+
+
 
 module.exports = Panificadora

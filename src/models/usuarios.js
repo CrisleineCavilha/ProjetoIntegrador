@@ -18,10 +18,7 @@ const Usuario = conexao.define('usuarios',
     senha: {
         type: DataTypes.STRING,
         allowNull: false,        
-    },
-    permissao: {
-        type: DataTypes.INTEGER,           
-    },
+    }
 
 }, {
     createdAt: false,

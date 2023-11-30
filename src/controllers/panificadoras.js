@@ -5,15 +5,17 @@ const jwt = require('jsonwebtoken');
 const config = require("../config");
 
 
-class controllerPostagens {
+class controllerPanificadoras {
 
 
     async Login(req, res) {
-        
+        console.log(req.body)
         const { email, senha } = req.body;
 
+        console.log(email,senha)
+
         if(!email || !senha ){
-            return res.status(401).json({ message: "E-mail ou senha inválido" });
+            return res.status(401).json({ message: "E-mail ou senha inválidoa" });
         }
         console.log(email)
         
@@ -21,17 +23,18 @@ class controllerPostagens {
 
         if(!usuario) {
             console.log('erro1')
-            return res.status(401).json({ message: "E-mail ou senha inválido" });
+            return res.status(401).json({ message: "E-mail ou senha inválidob" });
         }
 
         if(!(await bcrypt.compare(senha, usuario.senha))){
             console.log('erro2')
-            return res.status(401).json({ message: "E-mail ou senha inválido" });
+            return res.status(401).json({ message: "E-mail ou senha inválidoc" });
         }
         console.log(usuario)   
 
         const token = jwt.sign( 
-            { idUsuario: usuario.idUsuario, email: usuario.email, permissao: usuario.permissao},
+            
+            { idUsuario: usuario.idUsuario, email: usuario.email},
             config.secret 
         )
 
@@ -72,7 +75,7 @@ class controllerPostagens {
 
     async Create(req, res) {
         try {
-            console.log(req.session.permissao)
+            
             const resultPanificadora = await servico.Create(req.body.panificadora);
             res.status(201).json({
                 message: { resultPanificadora }

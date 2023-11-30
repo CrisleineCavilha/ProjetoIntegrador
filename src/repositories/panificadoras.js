@@ -34,9 +34,9 @@ class repositorioPanificadoras {
             email: panificadora.email,
             senha: await bcrypt.hash(panificadora.senha, 10)
         }, {transaction});
-
+        
         const { dataValues: resultPanificadora} = await Panificadora.create(
-            { usuarioId: resultUsuario.idUsuario, nome: panificadora.nome, telefone: panificadora.telefone, cnpj: panificadora.cnpj },
+            { idUsuario: resultUsuario.idUsuario, nome: panificadora.nome, cnpj: panificadora.cnpj },
             {transaction}
         )             
         return {...resultPanificadora, ...resultUsuario };

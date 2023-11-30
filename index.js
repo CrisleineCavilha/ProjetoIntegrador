@@ -10,5 +10,5 @@ app.use(routerPanificadoras);
 app.use(routerPostagens);
 
 app.listen(porta, () => {
-    console.log(`Servidor rodando na porta ${porta}.`)
+    console.log(`Servidor rodando na porta ${porta} ${process.pid}.`)
 });
